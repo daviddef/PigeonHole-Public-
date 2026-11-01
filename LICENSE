@@ -1,0 +1,11 @@
+Pigeonhole is copyright (c) David Defranceski.
+
+Permission is granted to download and use Pigeonhole free of charge for personal use.
+You may not redistribute modified copies, sell it, or reverse engineer it.
+
+PIGEONHOLE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND. TO THE FULLEST EXTENT PERMITTED BY LAW,
+THE AUTHOR IS NOT LIABLE FOR ANY LOSS OF OR DAMAGE TO EMAIL OR DATA ARISING FROM ITS USE.
+Keep a backup of any mail you cannot afford to lose.
+
+Pigeonhole includes CPython (Python Software Foundation License) and python-build-standalone (MPL-2.0, Astral),
+and the libraries they bundle, under their own licences. Pigeonhole is not affiliated with Apple or Google.
