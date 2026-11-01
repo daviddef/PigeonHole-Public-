@@ -16,18 +16,27 @@ Needs macOS 12 (Monterey) or later, on Apple silicon or Intel. You don't need to
 
 ## What it does
 
+Pigeonhole has three tabs.
+
 | Tab | What you can do |
 | --- | --- |
-| **Connect** | Sign in to iCloud or Google (more than one account is fine), see every folder with message counts and date ranges, and spot empty folders. **Live growth** shows folder counts and sizes changing as mail arrives or moves. |
-| **Scan** | Reads message headers to find duplicates (same Message-ID), including copies in different folders. Shows live progress, speed and time left. Nothing is changed. |
-| **Review** | See every duplicate group, choose which copy to keep (by folder, or "prefer filed folders"), then move the extras to Trash. |
-| **Tidy up** | **Merge folders**: combine look-alike folders such as "Sent Items" and "Sent Messages". **Archive by year**: move old mail out of a busy folder into year folders. **Large messages**: find the biggest messages, filter by size and age, save or strip attachments to disk. **Empty folders**: remove folders with no mail. |
-| **Local mail** | Look through mail stored on this Mac (read-only) to find large messages and attachments. |
+| **Tidy** | The home screen. Connect an account, then pick a card: **Duplicate messages** (find messages that exist twice, see *why* each pair matched, keep the copy you want), **Merge folders** (combine look-alikes such as "Sent Items" and "Sent Messages"; your real Sent folder is marked **✓ real Sent** and the leftovers **leftover**), **Archive by year**, **Large messages** (find what is using your space; save or strip attachments), **Empty folders**, and **Live growth** (watch folder counts and sizes change as mail arrives). Every screen has a "← Tidy" link back. |
+| **Move mail** | **Between accounts**: copy mail from one account to another (for example iCloud to Gmail) with a plan first, a check of every message afterwards, and an undo. **Mail on this Mac**: look through the mail Apple Mail keeps on this Mac (read-only). |
 | **History** | Every change is recorded. Undo most of them with one click. |
+
+### Moving mail between accounts
+
+1. Under **Move mail → Between accounts**, connect the **From** and **To** accounts (an app password for each).
+2. Press **Check what would be copied**. Nothing is changed: you get a list of folders, message counts, sizes and how long it will take.
+3. Untick folders you don't want, choose a different destination folder if you like, then press **Copy**.
+4. Pigeonhole copies each message with its date and read/flagged state, skips anything already at the destination (so you can run it again safely), and then checks the result against the destination.
+5. Afterwards you can **Undo this copy**, or (separately, with a confirmation) **move the copied mail out of the first account into its Trash**. Pigeonhole never deletes from the first account on its own.
+
+Good to know: iCloud accepts messages up to 20 MB and Gmail up to 25 MB. Larger ones are listed, not copied. Gmail only accepts about 500 MB of uploads a day, so a big mailbox can take several days; Pigeonhole pauses at the limit and carries on when you open it again. A message that has several Gmail labels is copied once if you leave "Copy each message once" ticked.
 
 ## First launch
 
-1. Open Pigeonhole. A window appears with the **Connect** tab.
+1. Open Pigeonhole. A window appears with the **Tidy** tab. Press **Connect a mailbox**.
 2. Choose **iCloud Mail** or **Google (Gmail)**, type your address and an **app-specific password** (not your normal password). See [How to get an app password](docs/app-passwords.md).
 3. Tick **Remember in the macOS Keychain** if you want it to remember the account. The password is stored only in your Mac's Keychain.
 4. Pick the folders to scan and press **Start scan**.
@@ -48,7 +57,9 @@ Pigeonhole only reads Mail's files and never changes them.
 - **Nothing happens until you confirm.** Scans only read headers.
 - **Each move is checked against the server first**, so a message that changed since the scan is left alone.
 - **Stop buttons** on every task. Quitting mid-task asks you first; what already moved is kept in History.
-- **No cloud, no account, no tracking.** Pigeonhole talks only to your mail provider. See [Privacy](#privacy).
+- **No cloud, no account, no tracking.** Pigeonhole talks only to your mail provider. See [Privacy](#privacy) and [Is Pigeonhole safe to trust?](docs/trust.md).
+- **Checked afterwards.** After a move it re-reads the folders from the server and tells you whether the counts changed by exactly the planned amount.
+- **Unsure matches are left alone.** Messages with no Message-ID are only matched when date, sender, subject and size all agree, and start as "Leave alone".
 
 ## Privacy
 
@@ -61,6 +72,8 @@ Pigeonhole only reads Mail's files and never changes them.
 ## Troubleshooting
 
 See [docs/troubleshooting.md](docs/troubleshooting.md). Common ones: login failed (use an app password), "macOS is blocking access to Mail's folder" (grant Full Disk Access), iCloud rejecting large uploads (use **Large messages**).
+
+More: [Is Pigeonhole safe to trust?](docs/trust.md)
 
 ## Uninstall
 
