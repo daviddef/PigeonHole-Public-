@@ -5,7 +5,7 @@ Pigeonhole asks for an app password, so it is fair to ask what it does with it. 
 ## In short
 
 - Your mail is never uploaded anywhere. Pigeonhole has no server of its own.
-- It talks only to your mail provider (`imap.mail.me.com` for iCloud, `imap.gmail.com` for Google), plus the two accounts you pick if you use **Move mail**.
+- It talks only to your mail provider (`imap.mail.me.com` for iCloud, `imap.gmail.com` for Google), plus the two accounts you pick if you use **Move mail**. The one exception is the optional **Ask Claude** step in Sort Gmail, which is off unless you switch it on (see below).
 - Your app password is kept in the macOS Keychain, and only if you tick "Remember". It is never written to a file or a log.
 - It sends no analytics, no crash reports and no "phone home" messages.
 - Removing messages moves them to Trash and can be undone from **History**. Pigeonhole never empties your Trash.
@@ -24,6 +24,17 @@ nettop -m tcp -p Pigeonhole
 ```
 
 You should see only the hosts above.
+
+## Optional: Ask Claude (Sort Gmail)
+
+**Sort Gmail** adds labels to Gmail messages. It can use Claude to decide which label fits. This is **off by default** and needs your own Anthropic API key.
+
+- **What is sent** to Anthropic (`api.anthropic.com`), for the messages being sorted: the **sender, the subject and the first ~300 characters of text**. To suggest new categories it sends the **sender and subject** only. Nothing else is sent: no attachments, no full messages, no other mail, no passwords.
+- **Nothing is sent unless you switch it on.** Pigeonhole asks you to confirm the first time. With it off, Sort Gmail uses built-in patterns on your Mac and contacts only Gmail.
+- **You approve the result.** Claude's answers are shown in a preview. Nothing is labelled until you press Label, and Sort Gmail only adds labels: it never moves, deletes or marks messages as read.
+- **Your API key** is kept in memory, or in the macOS Keychain only if you tick Remember. You can forget it at any time. It is billed to your Anthropic account, not through Pigeonhole.
+- **On your Mac:** Pigeonhole remembers which messages it has sorted and which senders suit which label, in `~/.icloud_dedupe`. Delete that folder to forget it all.
+- Anthropic's handling of API data is covered by their own terms and privacy policy. If you would rather no mail text left your Mac, leave this off.
 
 ## Your password
 

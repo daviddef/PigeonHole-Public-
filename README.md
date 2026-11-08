@@ -57,13 +57,14 @@ Pigeonhole only reads Mail's files and never changes them.
 - **Nothing happens until you confirm.** Scans only read headers.
 - **Each move is checked against the server first**, so a message that changed since the scan is left alone.
 - **Stop buttons** on every task. Quitting mid-task asks you first; what already moved is kept in History.
-- **No cloud, no account, no tracking.** Pigeonhole talks only to your mail provider. See [Privacy](#privacy) and [Is Pigeonhole safe to trust?](docs/trust.md).
+- **No cloud, no account, no tracking.** Pigeonhole talks only to your mail provider, unless you switch on the optional Ask Claude step in Sort Gmail (see below). See [Privacy](#privacy) and [Is Pigeonhole safe to trust?](docs/trust.md).
 - **Checked afterwards.** After a move it re-reads the folders from the server and tells you whether the counts changed by exactly the planned amount.
 - **Unsure matches are left alone.** Messages with no Message-ID are only matched when date, sender, subject and size all agree, and start as "Leave alone".
 
 ## Privacy
 
 - Your mail and passwords never leave your Mac, except to your own mail provider (iCloud: `imap.mail.me.com`, Google: `imap.gmail.com`).
+- Optional and off by default: **Ask Claude** (Sort Gmail) sends the sender, subject and the first ~300 characters of the messages being sorted to Anthropic's API, using your own API key. See [the trust page](docs/trust.md#optional-ask-claude-sort-gmail).
 - Passwords are kept in the macOS Keychain, only if you tick "Remember".
 - Settings, history and recent accounts are kept in `~/.icloud_dedupe` (open it from **Help > Open Pigeonhole's data folder**).
 - Attachments you choose to save are written to `Documents/Pigeonhole`.
