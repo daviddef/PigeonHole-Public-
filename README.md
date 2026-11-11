@@ -12,6 +12,8 @@ Pigeonhole works with **iCloud Mail** and **Google (Gmail)** accounts, and can a
 2. Open the DMG and drag **Pigeonhole** into **Applications**.
 3. Open Pigeonhole from Applications. It is signed and notarised by Apple, so it opens without warnings.
 
+**Price:** try it free (500 changed messages), then a one-time **US$9.99** licence unlocks everything, with all 1.x updates. [Buy a licence](https://daviddef.github.io/PigeonHole-Public-/buy.html).
+
 Needs macOS 12 (Monterey) or later, on Apple silicon or Intel. You don't need to install anything else: Python is included.
 
 ## What it does
@@ -82,4 +84,4 @@ Quit Pigeonhole and drag it from Applications to the Bin. To also remove its dat
 
 ## Licence
 
-Free to use for personal use, provided as is without warranty. Copyright David Defranceski. See [LICENSE](LICENSE).
+Free to try for 500 changed messages; after that a one-time US$9.99 licence (all 1.x updates) is needed. Provided as is without warranty. Copyright David Defranceski. See [LICENSE](LICENSE).

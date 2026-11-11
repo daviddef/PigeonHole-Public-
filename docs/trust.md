@@ -55,7 +55,7 @@ Everything lives in `~/.icloud_dedupe` on your Mac: your account names (not pass
 
 ## Is it open source?
 
-No. Pigeonhole is **free for personal use, but closed source**. The licence is in the [LICENSE](../LICENSE) file. The documentation here is public so you can read what the app does, but the source is not published, so the checks above (network monitor, notarisation, Keychain) are how you verify it rather than reading the code.
+No. Pigeonhole is **closed source, with a free trial and then a one-time US$9.99 licence**. The licence is in the [LICENSE](../LICENSE) file. The documentation here is public so you can read what the app does, but the source is not published, so the checks above (network monitor, notarisation, Keychain) are how you verify it rather than reading the code.
 
 ## Safety rules it follows
 
